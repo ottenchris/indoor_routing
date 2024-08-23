@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:design_system_flutter/design_system_flutter.dart';
-import '../native_app.dart';
 
 class ServicesPage extends StatefulWidget {
   const ServicesPage({super.key});
