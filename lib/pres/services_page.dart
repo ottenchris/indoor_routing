@@ -80,16 +80,14 @@ class _ServicesPageState extends State<ServicesPage> {
           ),
         ],
       ),
-      bottomNavigationBar: SBBGroup(
-        child: SBBTabBar(
-          items: items,
-          onTabChanged: (task) async {},
-          controller: controller,
-          warningSemantics: 'Warning',
-          // onTap: (tab) {
-          //   sbbToast.show(message: 'Tab tapped: Item ${tab.id}');
-          // },
-        ),
+      bottomNavigationBar: SBBTabBar(
+        items: items,
+        onTabChanged: (task) async {},
+        controller: controller,
+        warningSemantics: 'Warning',
+        // onTap: (tab) {
+        //   sbbToast.show(message: 'Tab tapped: Item ${tab.id}');
+        // },
       ),
     );
   }
