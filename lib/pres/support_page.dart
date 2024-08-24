@@ -13,8 +13,7 @@ class _SupportPageState extends State<SupportPage> {
   late final WebViewController controller;
   String fromStation = 'Bern Wankdorf';
   String toStation = 'Zürich HB';
-  int loadingCount = 0;
-  bool isLoading = false;
+  bool showHelpQuestion = true;
 
   @override
   void initState() {
@@ -24,12 +23,6 @@ class _SupportPageState extends State<SupportPage> {
       ..setNavigationDelegate(
         NavigationDelegate(
           onPageFinished: (String url) {
-            loadingCount++;
-            if (loadingCount == 2) {
-              setState(() {
-                isLoading = false;
-              });
-            }
             print('Page finished loading: $url');
             // Execute custom JavaScript after the page has finished loading
             controller.runJavaScript('''
@@ -48,11 +41,45 @@ class _SupportPageState extends State<SupportPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SBBHeader(title: 'Support'),
-      body: Center(
-        child: WebViewWidget(
+      body:
+        Stack(
+          alignment: Alignment.center,
+          fit: StackFit.expand,
+          children: [
+            WebViewWidget(
               controller: controller,
             ),
-      ),
+            if(showHelpQuestion)
+              Card(
+                margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: const Text('Jemand braucht hilfe'),
+                      subtitle: const Text(
+                          'Helfen sie einer Person zum nächsten Gleis zu gelangen.'),
+                      leading: const Icon(SBBIcons.hand_plus_circle_small),
+                      onTap: () {},
+                    ),
+                    ButtonBar(
+                      children: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            // Add your button's onPressed logic here
+                            setState(() {
+                              showHelpQuestion = false;
+                            });
+                          },
+                          child: const Text('Hilfe leisten'),
+                        ),
+                        // You can add more buttons here if needed
+                      ],
+                    ),
+                  ],
+                )
+              ),
+          ],
+        )
     );
   }
 }
