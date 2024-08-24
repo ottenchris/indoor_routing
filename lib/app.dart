@@ -9,7 +9,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: dsf.SBBTheme.dark(),
+      theme: dsf.SBBTheme.dark().copyWith(
+        listTileTheme: const ListTileThemeData(
+          subtitleTextStyle: TextStyle(
+            color: dsf.SBBColors.smoke,
+          ),
+        ),
+      ),
       home: const HomePage(),
     );
   }
