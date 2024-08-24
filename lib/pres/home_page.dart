@@ -1,6 +1,8 @@
 import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
 
+import 'nav_pages/settings_page.dart';
+import 'nav_pages/station_page.dart';
 import 'services_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,11 +37,11 @@ class _HomePageState extends State<HomePage> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          const Placeholder(),
-          const Placeholder(),
-          const Placeholder(),
+          const LoadingPage(title: 'Bahnhöfe'),
+          const LoadingPage(title: 'Haltestellen'),
+          const LoadingPage(title: 'Unterwegs'),
           const ServicesPage(),
-          const Placeholder(),
+          const SettingsPage(),
         ],
       ),
       bottomNavigationBar: SBBTabBar(
