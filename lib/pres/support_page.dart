@@ -42,7 +42,8 @@ class _SupportPageState extends State<SupportPage> {
               setTimeout(function() {
                 document.getElementsByTagName("sbb-secondary-button")[0].style.display = "none" // Hide the close button on top right
                 document.getElementsByClassName("map-widgets")[0].style.marginTop = "0" // Move the map to the top right
-              }, 4000);
+                document.querySelectorAll('[data-testid="overlay-navigation"]')[0].style.display = "none" // Hide the overlay navigation
+              }, 3000);
 
             ''');
           },
