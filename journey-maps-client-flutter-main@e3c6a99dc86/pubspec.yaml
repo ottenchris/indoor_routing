@@ -1,0 +1,51 @@
+name: sbb_maps_flutter
+description: The SBB Maps SDK using MapLibre under the hood and ROKAS map styling.
+version: 2.0.0
+publish_to: "none"
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
+
+platforms:
+  android:
+  ios:
+
+flutter:
+  assets:
+    - lib/fonts/
+  fonts:
+    - family: SBBIconsSmall
+      fonts:
+        - asset: packages/sbb_maps_flutter/fonts/font-sbb-icons-small.ttf
+    - family: SBBWeb
+      fonts:
+        - asset: packages/sbb_maps_flutter/fonts/SBBWeb-Bold.ttf
+          weight: 700
+        - asset: packages/sbb_maps_flutter/fonts/SBBWeb-Roman.ttf
+          weight: 400
+        - asset: packages/sbb_maps_flutter/fonts/SBBWeb-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: packages/sbb_maps_flutter/fonts/SBBWeb-Light.ttf
+          weight: 300
+        - asset: packages/sbb_maps_flutter/fonts/SBBWeb-Thin.ttf
+          weight: 200
+        - asset: packages/sbb_maps_flutter/fonts/SBBWeb-Ultra-Light.ttf
+          weight: 100
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  maplibre_gl: ^0.20.0
+
+  geolocator: ">=11.0.0 <=13.0.0"
+  logger: ^2.0.2+1
+  collection: ^1.17.1
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  test: ^1.24.0
+  mockito: ^5.4.2
+  build_runner: ^2.4.7
