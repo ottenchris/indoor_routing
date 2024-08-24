@@ -22,7 +22,7 @@ class SupporterFoundPage extends StatelessWidget {
                   const SBBMessage(
                     title: 'Unterstützung ist unterwegs.',
                     description:
-                        'Dein Unterstüzer ist auf dem Weg zu dir, hebe die Hand um auf dich aufmerksam zu machen.',
+                        'Dein Unterstüzer ist auf dem Weg zu dir, mach gerne auf dich aufmerksam.',
                     interactionIcon: SBBIcons.bus_sbb_medium,
                   ),
                   const SizedBox(height: sbbDefaultSpacing),

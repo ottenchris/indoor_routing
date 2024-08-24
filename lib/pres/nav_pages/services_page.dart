@@ -65,7 +65,7 @@ class _ServicesPageState extends State<ServicesPage> {
           Card(
             margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
             child: ListTile(
-              title: const Text('Helfen Sie'),
+              title: const Text('Hilfe offerieren'),
               subtitle: const Text(
                   'Helfen Sie anderen Reisenden, indem Sie sich als Helfer registrieren.'),
               leading: const Icon(SBBIcons.hand_user_small),
