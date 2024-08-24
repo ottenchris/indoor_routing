@@ -1,6 +1,7 @@
 import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
-import 'services_page.dart'; // Import the new page
+
+import 'services_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +18,7 @@ class _DemoItem extends TabBarItem {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
   final items = <TabBarItem>[
     _DemoItem('Bahnhof', SBBIcons.station_small),
     _DemoItem('Haltestelle', SBBIcons.bus_stop_small),
@@ -30,10 +32,28 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const ServicesPage(),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: [
+          const Placeholder(),
+          const Placeholder(),
+          const Placeholder(),
+          const ServicesPage(),
+          const Placeholder(),
+        ],
+      ),
       bottomNavigationBar: SBBTabBar(
         items: items,
-        onTabChanged: (task) async {},
+        onTabChanged: (Future<TabBarItem> task) async {
+          TabBarItem myTask = await task;
+          int newIndex = items.indexOf(myTask);
+
+          setState(() {
+            _selectedIndex = newIndex;
+          });
+
+          print('Selected: ${_selectedIndex}');
+        },
         controller: controller,
       ),
     );
