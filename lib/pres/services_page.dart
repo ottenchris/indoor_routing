@@ -1,6 +1,8 @@
 import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:indoor_routing/pres/support_page.dart';
+
+import 'request_page.dart';
+import 'support_page.dart';
 
 class ServicesPage extends StatefulWidget {
   const ServicesPage({super.key});
@@ -16,9 +18,7 @@ class _ServicesPageState extends State<ServicesPage> {
       appBar: const SBBHeader(title: 'Services'),
       body: ListView(
         padding: const EdgeInsets.symmetric(
-          horizontal: sbbDefaultSpacing / 2,
-          vertical: sbbDefaultSpacing / 2,
-        ),
+            horizontal: sbbDefaultSpacing / 2, vertical: sbbDefaultSpacing / 2),
         children: [
           Card(
             margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
@@ -53,7 +53,7 @@ class _ServicesPageState extends State<ServicesPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SupportPage()),
+                  MaterialPageRoute(builder: (context) => const RequestPage()),
                 );
               },
             ),
@@ -66,7 +66,12 @@ class _ServicesPageState extends State<ServicesPage> {
                   'Helfen Sie anderen Reisenden, indem Sie sich als Helfer registrieren.'),
               leading: const Icon(SBBIcons.hand_plus_circle_small),
               trailing: const Icon(SBBIcons.chevron_small_right_small),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SupportPage()),
+                );
+              },
             ),
           ),
         ],
