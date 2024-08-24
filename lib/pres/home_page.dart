@@ -13,18 +13,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const dsf.SBBHeader(
-        title: 'Header',
-      ),
-      body: dsf.SBBPrimaryButton(
-        label: "label",
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ServicesPage()),
-          );
-        },
-      ),
+      appBar: dsf.SBBHeader(title: 'Home Page'),
+      body: const ServicesPage(), // Use the new page
     );
   }
 }
