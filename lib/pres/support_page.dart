@@ -1,6 +1,7 @@
 import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:async';
 
 class SupportPage extends StatefulWidget {
   const SupportPage({super.key});
@@ -14,6 +15,7 @@ class _SupportPageState extends State<SupportPage> {
   String fromStation = 'Bern Wankdorf';
   String toStation = 'Zürich HB';
   bool showHelpQuestion = true;
+  bool waitForMap = true;
 
   @override
   void initState() {
@@ -24,6 +26,11 @@ class _SupportPageState extends State<SupportPage> {
         NavigationDelegate(
           onPageFinished: (String url) {
             print('Page finished loading: $url');
+            Timer(Duration(seconds: 4), () {
+            setState(() {
+              waitForMap = false;
+            });
+          });
             // Execute custom JavaScript after the page has finished loading
             controller.runJavaScript('''
               // Your custom JavaScript code here
@@ -61,20 +68,39 @@ class _SupportPageState extends State<SupportPage> {
                       leading: const Icon(SBBIcons.hand_plus_circle_small),
                       onTap: () {},
                     ),
-                    ButtonBar(
-                      children: <Widget>[
-                        TextButton(
-                          onPressed: () {
-                            // Add your button's onPressed logic here
-                            setState(() {
-                              showHelpQuestion = false;
-                            });
-                          },
-                          child: const Text('Hilfe leisten'),
-                        ),
-                        // You can add more buttons here if needed
-                      ],
-                    ),
+                      ButtonBar(
+  children: <Widget>[
+    TextButton(
+      onPressed: waitForMap
+          ? null // Disable the button when waitForMap is true
+          : () {
+              // Add your button's onPressed logic here
+              setState(() {
+                showHelpQuestion = false;
+              });
+            },
+      child: Row(
+        mainAxisSize: MainAxisSize.min, // Ensures the row fits its content
+        children: [
+          if (waitForMap)
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0), // Space between indicator and text
+              child: SizedBox(
+                width: 16,
+                height: 16,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.0,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+          const Text('Hilfe leisten'),
+        ],
+      ),
+    ),
+    // Add more buttons here if needed, with similar logic for enabling/disabling
+  ],
+),
                   ],
                 )
               ),
