@@ -43,10 +43,10 @@ class _RequestAidPageState extends State<RequestAidPage> {
                   SBBMessage(
                     customIllustration: Container(),
                     title: _title,
-                  description: _description,
-                  isLoading: _isLoading,
-                  interactionIcon: SBBIcons.bus_sbb_medium,
-                ),
+                    description: _description,
+                    isLoading: _isLoading,
+                    interactionIcon: SBBIcons.bus_sbb_medium,
+                  ),
               ],
             ),
           ),
@@ -62,9 +62,7 @@ class _RequestAidPageState extends State<RequestAidPage> {
                       text: 'Dein Wagen und Gleis wurde erkannt.',
                       isCloseable: false,
                     ),
-                    SizedBox(
-                      height: sbbDefaultSpacing / 2,
-                    ),
+                    const SizedBox(height: sbbDefaultSpacing / 2),
                     SBBTextField(
                       labelText: 'Dein Austieg',
                       controller: TextEditingController()
