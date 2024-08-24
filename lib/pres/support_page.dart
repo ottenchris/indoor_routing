@@ -50,6 +50,7 @@ class _SupportPageState extends State<SupportPage> {
         ),
       )
       ..loadRequest(
+        /// Link: https://www.sbb.ch/de?date=%222024-08-23%22&moment=%22DEPARTURE%22&selected_leg=2&selected_trip=0&stops=%5B%7B%22value%22%3A%228516161%22%2C%22type%22%3A%22ID%22%2C%22label%22%3A%22Bern%20Wankdorf%22%7D%2C%7B%22value%22%3A%228503000%22%2C%22type%22%3A%22ID%22%2C%22label%22%3A%22Z%C3%BCrich%20HB%22%7D%5D&time=%2222%3A02%22
         Uri.parse(
             'https://www.sbb.ch/de?date=%222024-08-23%22&moment=%22DEPARTURE%22&selected_leg=2&selected_trip=0&stops=%5B%7B%22value%22%3A%228516161%22%2C%22type%22%3A%22ID%22%2C%22label%22%3A%22' +
                 fromStation +
