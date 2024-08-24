@@ -30,16 +30,11 @@ class _ServicesPageState extends State<ServicesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: SBBHeader(
-        title: 'Services',
-        onPressedLogo: () => Navigator.maybePop(context),
-        logoTooltip: 'Back to home',
-      ),
+      appBar: const SBBHeader(title: 'Services'),
       body: ListView(
         padding: const EdgeInsets.all(sbbDefaultSpacing),
         children: [
           // ThemeModeSegmentedButton(),
-          const SizedBox(height: sbbDefaultSpacing),
           Column(
             children: <Widget>[
               SBBCard(
@@ -53,16 +48,20 @@ class _ServicesPageState extends State<ServicesPage> {
                   onPressed: null,
                 ),
               ),
+              const SizedBox(height: sbbDefaultSpacing),
               SBBCard(
                 body: SBBListItem(
                   title: 'Notfall',
                   subtitleMaxLines: 2,
+
                   subtitle:
                       'Holen Sie per Telefon Hilfe von der Transportpolizei.',
-                  leadingIcon: SBBIcons.alarm_clock_large,
+                  leadingIcon: SBBIcons.warning_light_medium,
+                  trailingIcon: SBBIcons.chevron_small_right_small,
                   onPressed: null,
                 ),
               ),
+              const SizedBox(height: sbbDefaultSpacing),
               SBBCard(
                 body: SBBListItem(
                   title: 'Unterstützung für Sehbehinderte',
@@ -70,6 +69,7 @@ class _ServicesPageState extends State<ServicesPage> {
                   subtitle:
                       'Senden sie an Personen im Zug eine Nachricht, mit der Bitte sie am Bahnhof zu navigieren.',
                   leadingIcon: SBBIcons.hand_fingers_snap_large,
+                  trailingIcon: SBBIcons.chevron_small_right_small,
                   onPressed: () {
                     Navigator.push(
                       context,
