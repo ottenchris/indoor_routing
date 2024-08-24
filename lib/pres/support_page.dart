@@ -2,6 +2,7 @@ import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
+import 'thank_you_page.dart';
 
 class SupportPage extends StatefulWidget {
   const SupportPage({super.key});
@@ -35,6 +36,11 @@ class _SupportPageState extends State<SupportPage> {
             controller.runJavaScript('''
               // Your custom JavaScript code here
               // document.getElementsByClassName("bg-anthracite")[0].style.height = "100%"; // Increase the size of the map
+              setTimeout(function() {
+                document.getElementsByTagName("sbb-secondary-button")[0].style.display = "none" // Hide the close button on top right
+                document.getElementsByClassName("map-widgets")[0].style.marginTop = "0" // Move the map to the top right
+              }, 4000);
+
             ''');
           },
         ),
@@ -56,51 +62,74 @@ class _SupportPageState extends State<SupportPage> {
             WebViewWidget(
               controller: controller,
             ),
+Align(
+      alignment: Alignment.bottomCenter, // Aligns the card at the bottom
+      child: Card(
+        margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4, horizontal: sbbDefaultSpacing / 2),
+        child: IntrinsicHeight( // Makes the Card as small as possible
+          child: ListTile(
+            contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0), // Optional: Adjust padding
+            title: const Text('Wir sind am Ziel'),
+            leading: const Icon(SBBIcons.tick_medium),
+            trailing: const Icon(SBBIcons.chevron_small_right_small),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ThankYouPage()),
+              );
+            },
+          ),
+        ),
+      ),
+    ),
             if(showHelpQuestion)
               Card(
-                margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
+                shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero, // Removes the border radius
+              ),
                 child: Column(
                   children: <Widget>[
                     ListTile(
-                      title: const Text('Jemand braucht hilfe'),
+                      title: const Text('Helfe Bernd Umzusteigen'),
                       subtitle: const Text(
-                          'Helfen sie einer Person zum nächsten Gleis zu gelangen.'),
+                          'Bernd ist sehbehindert und braucht deine Hilfe. Bringe Bernd von Gleis 2 zu Gleis 8.'),
                       leading: const Icon(SBBIcons.hand_plus_circle_small),
-                      onTap: () {},
                     ),
                       ButtonBar(
-  children: <Widget>[
-    TextButton(
-      onPressed: waitForMap
-          ? null // Disable the button when waitForMap is true
-          : () {
-              // Add your button's onPressed logic here
-              setState(() {
-                showHelpQuestion = false;
-              });
-            },
-      child: Row(
-        mainAxisSize: MainAxisSize.min, // Ensures the row fits its content
-        children: [
-          if (waitForMap)
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0), // Space between indicator and text
-              child: SizedBox(
-                width: 16,
-                height: 16,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.0,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-          const Text('Hilfe leisten'),
-        ],
-      ),
-    ),
-    // Add more buttons here if needed, with similar logic for enabling/disabling
-  ],
-),
+                        children: <Widget>[
+                          TextButton(
+                            onPressed: waitForMap
+                                ? null // Disable the button when waitForMap is true
+                                : () {
+                                    // Add your button's onPressed logic here
+                                    setState(() {
+                                      showHelpQuestion = false;
+                                    });
+                                  },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min, // Ensures the row fits its content
+                              children: [
+                                if (waitForMap)
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 8.0), // Space between indicator and text
+                                    child: SizedBox(
+                                      width: 16,
+                                      height: 16,
+                                      child:
+                                      SBBLoadingIndicator()
+                                      // CircularProgressIndicator(
+                                      //   strokeWidth: 2.0,
+                                      //   color: Colors.grey,
+                                      // ),
+                                    ),
+                                  ),
+                                const Text('Los gehts!'),
+                              ],
+                            ),
+                          ),
+                          // Add more buttons here if needed, with similar logic for enabling/disabling
+                        ],
+                      ),
                   ],
                 )
               ),
