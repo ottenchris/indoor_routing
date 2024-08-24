@@ -29,57 +29,79 @@ class _RequestAidPageState extends State<RequestAidPage> {
         ),
         children: [
           SBBGroup(
-            padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
+            //padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
             child: Column(
               children: [
-                SBBMessage(
-                  title: _title,
+                if (!_isLoading)
+                  SBBNotificationBox(
+                    isCloseable: false,
+                    state: SBBNotificationBoxState.information,
+                    title: _title,
+                    text: _description,
+                  ),
+                if (_isLoading)
+                  SBBMessage(
+                    customIllustration: Container(),
+                    title: _title,
                   description: _description,
                   isLoading: _isLoading,
                   interactionIcon: SBBIcons.bus_sbb_medium,
                 ),
-                const SizedBox(height: sbbDefaultSpacing),
-                if (!_isLoading) ...[
-                  SBBTextField(
-                    labelText: 'Dein Name',
-                    controller: TextEditingController()
-                      ..value = const TextEditingValue(text: 'Chris Ott'),
-                  ),
-                  SBBTextField(
-                    labelText: 'Dein Standort',
-                    controller: TextEditingController()
-                      ..value = const TextEditingValue(text: 'Wagen 420'),
-                  ),
-                  SBBTextField(
-                    labelText: 'Wo musst du hin?',
-                    controller: TextEditingController()
-                      ..value = const TextEditingValue(text: 'Gleis 420'),
-                  ),
-                  const SizedBox(height: sbbDefaultSpacing),
-                  SBBPrimaryButton(
-                    label: 'Anfrage senden',
-                    onPressed: () {
-                      sbbToast.show(message: 'Deine Anfrage wurde versendet.');
-                      setState(() {
-                        _isLoading = true;
-                        _title = 'Ein Helfer wird gesucht.';
-                        _description =
-                            'Wir benachrichtigen dich, sobald ein Helfer gefunden wurde. Bitte schließe diese Seite nicht.';
-                      });
-                      Future.delayed(const Duration(seconds: 2), () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SupporterFoundPage()),
-                        );
-                      });
-                    },
-                  ),
-                ],
               ],
             ),
           ),
+          const SizedBox(height: sbbDefaultSpacing),
+          if (!_isLoading)
+            SBBGroup(
+                padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
+                child: Column(
+                  children: [
+                    const SBBNotificationBox(
+                      state: SBBNotificationBoxState.success,
+                      title: 'Automatisch erkannt',
+                      text: 'Dein Wagen und Gleis wurde erkannt.',
+                      isCloseable: false,
+                    ),
+                    SizedBox(
+                      height: sbbDefaultSpacing / 2,
+                    ),
+                    SBBTextField(
+                      labelText: 'Dein Austieg',
+                      controller: TextEditingController()
+                        ..value =
+                            const TextEditingValue(text: 'Gleis 2 - Wagen 5'),
+                    ),
+                    SBBTextField(
+                      labelText: 'Wo musst du hin?',
+                      controller: TextEditingController()
+                        ..value =
+                            const TextEditingValue(text: 'Gleis 8 - Section C'),
+                    ),
+                    const SizedBox(height: sbbDefaultSpacing),
+                    SBBPrimaryButton(
+                      label: 'Anfrage senden',
+                      onPressed: () {
+                        sbbToast.show(
+                            message: 'Deine Anfrage wurde versendet.');
+                        setState(() {
+                          _isLoading = true;
+                          _title = 'Ein Helfer wird gesucht.';
+                          _description =
+                              'Wir benachrichtigen dich, sobald ein Helfer gefunden wurde. Bitte schließe diese Seite nicht.';
+                        });
+                        Future.delayed(const Duration(seconds: 2), () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const SupporterFoundPage()),
+                          );
+                        });
+                      },
+                    ),
+                  ],
+                ))
         ],
       ),
     );
