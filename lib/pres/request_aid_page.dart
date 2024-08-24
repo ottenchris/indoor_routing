@@ -20,12 +20,12 @@ class _RequestAidPageState extends State<RequestAidPage> {
 
     return Scaffold(
       appBar: SBBHeader(
-        title: 'Services',
+        title: 'Umstiegshilfe',
         onPressedLogo: () => Navigator.maybePop(context),
-        logoTooltip: 'Back to home',
       ),
       body: ListView(
-        padding: const EdgeInsets.all(sbbDefaultSpacing),
+        padding: const EdgeInsets.symmetric(
+            horizontal: sbbDefaultSpacing / 2, vertical: sbbDefaultSpacing / 2),
         children: [
           SBBGroup(
             margin: const EdgeInsets.symmetric(horizontal: sbbDefaultSpacing),

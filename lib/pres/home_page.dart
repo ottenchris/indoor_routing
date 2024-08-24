@@ -1,9 +1,9 @@
 import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
 
+import 'nav_pages/services_page.dart';
 import 'nav_pages/settings_page.dart';
 import 'nav_pages/station_page.dart';
-import 'services_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
