@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:design_system_flutter/design_system_flutter.dart' as dsf;
-import 'pres/services_page.dart';
+import 'package:flutter/material.dart';
+import 'package:indoor_routing/pres/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -8,8 +8,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: dsf.SBBTheme.light(),
-      home: const ServicesPage(),
+      debugShowCheckedModeBanner: false,
+      theme: dsf.SBBTheme.dark(),
+      home: const HomePage(),
     );
   }
 }
