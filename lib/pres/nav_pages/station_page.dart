@@ -14,8 +14,8 @@ class LoadingPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SBBLoadingIndicator(),
-            SizedBox(height: sbbDefaultSpacing),
+            const SBBLoadingIndicator(),
+            const SizedBox(height: sbbDefaultSpacing),
             Text('$title werden aktualisiert...'),
           ],
         ),
