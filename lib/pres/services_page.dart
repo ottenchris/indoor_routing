@@ -45,9 +45,9 @@ class _ServicesPageState extends State<ServicesPage> {
           Card(
             margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
             child: ListTile(
-              title: const Text('Unterstützung für Sehbehinderte'),
+              title: const Text('Umstiegshilfe'),
               subtitle: const Text(
-                  'Senden sie an Personen im Zug eine Nachricht, mit der Bitte sie am Bahnhof zu navigieren.'),
+                  'Fragen Sie andere Reisende, ob sie Ihnen beim Umsteigen helfen können.'),
               leading: const Icon(SBBIcons.hand_fingers_snap_small),
               trailing: const Icon(SBBIcons.chevron_small_right_small),
               onTap: () {
