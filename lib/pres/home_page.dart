@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:design_system_flutter/design_system_flutter.dart' as dsf;
+import 'services_page.dart'; // Import the new page
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +18,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: dsf.SBBPrimaryButton(
         label: "label",
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ServicesPage()),
+          );
+        },
       ),
     );
   }
