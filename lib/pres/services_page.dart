@@ -24,12 +24,10 @@ class _ServicesPageState extends State<ServicesPage> {
     _DemoItem('Einstellungen', SBBIcons.adult_kids_large),
   ];
 
-  bool visible = true;
   late TabBarController controller = TabBarController(items.first);
 
   @override
   Widget build(BuildContext context) {
-    final sbbToast = SBBToast.of(context);
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: SBBHeader(
@@ -42,26 +40,31 @@ class _ServicesPageState extends State<ServicesPage> {
         children: [
           // ThemeModeSegmentedButton(),
           const SizedBox(height: sbbDefaultSpacing),
-          SBBGroup(
-            child: Column(
-              children: <Widget>[
-                SBBListItem(
+          Column(
+            children: <Widget>[
+              SBBCard(
+                body: SBBListItem(
                   title: 'Türknopf',
                   subtitleMaxLines: 2,
                   subtitle:
                       'Finden Sie mit Ihrer Kamera Türen und Türknöpfe von Zügen der SBB.',
-                  leadingIcon: SBBIcons.checkpoints_small,
+                  leadingIcon: SBBIcons.fullscreen_small,
+                  trailingIcon: SBBIcons.chevron_small_right_small,
                   onPressed: null,
                 ),
-                SBBListItem(
+              ),
+              SBBCard(
+                body: SBBListItem(
                   title: 'Notfall',
                   subtitleMaxLines: 2,
                   subtitle:
                       'Holen Sie per Telefon Hilfe von der Transportpolizei.',
                   leadingIcon: SBBIcons.alarm_clock_large,
-                  onPressed: () => sbbToast.show(message: 'Testmessage'),
+                  onPressed: null,
                 ),
-                SBBListItem(
+              ),
+              SBBCard(
+                body: SBBListItem(
                   title: 'Unterstützung für Sehbehinderte',
                   subtitleMaxLines: 2,
                   subtitle:
@@ -75,8 +78,8 @@ class _ServicesPageState extends State<ServicesPage> {
                     );
                   }, //TODO: Create new page for Request
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
