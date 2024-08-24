@@ -13,7 +13,7 @@ class SettingsPage extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: sbbDefaultSpacing / 2),
           child: Column(
             children: [
-              /// Allgemein
+              /// General
               const SBBListHeader('Allgemein'),
               SBBGroup(
                 child: Column(

@@ -18,30 +18,33 @@ class _ServicesPageState extends State<ServicesPage> {
       appBar: const SBBHeader(title: 'Services'),
       body: ListView(
         padding: const EdgeInsets.symmetric(
-            horizontal: sbbDefaultSpacing / 2, vertical: sbbDefaultSpacing / 2),
+          horizontal: sbbDefaultSpacing / 2,
+        ),
         children: [
-          Card(
-            margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
+          const SBBListHeader('Allgemein'),
+          const Card(
+            margin: EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
             child: ListTile(
-              title: const Text('Türknopf'),
-              subtitle: const Text(
+              title: Text('Türknopf'),
+              subtitle: Text(
                   'Finden Sie mit Ihrer Kamera Türen und Türknöpfe von Zügen der SBB.'),
-              leading: const Icon(SBBIcons.fullscreen_small),
-              trailing: const Icon(SBBIcons.chevron_small_right_small),
-              onTap: () {},
+              leading: Icon(SBBIcons.fullscreen_small),
+              trailing: Icon(SBBIcons.chevron_small_right_small),
+              onTap: null,
             ),
           ),
-          Card(
-            margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
+          const Card(
+            margin: EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
             child: ListTile(
-              title: const Text('Notfall'),
-              subtitle: const Text(
-                  'Holen Sie per Telefon Hilfe von der Transportpolizei.'),
-              leading: const Icon(SBBIcons.warning_light_small),
-              trailing: const Icon(SBBIcons.chevron_small_right_small),
-              onTap: () {},
+              title: Text('Notfall'),
+              subtitle:
+                  Text('Holen Sie per Telefon Hilfe von der Transportpolizei.'),
+              leading: Icon(SBBIcons.warning_light_small),
+              trailing: Icon(SBBIcons.chevron_small_right_small),
+              onTap: null,
             ),
           ),
+          const SBBListHeader('Umstiegshilfe'),
           Card(
             margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
             child: ListTile(

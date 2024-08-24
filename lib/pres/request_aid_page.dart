@@ -10,26 +10,24 @@ class RequestAidPage extends StatefulWidget {
 
 class _RequestAidPageState extends State<RequestAidPage> {
   bool _isLoading = false;
+  String _title = 'Fordere jetzt Hilfe an.';
   String _description =
       'Nachdem du deine Anfrage versendet hast, werden deine Mitfahrenden benachrichtigt, dass du Unterstützung benötigst. Wir benachrichtigen dich, wenn ein Helfer gefunden wurde.';
-  String _title = 'Fordere jetzt Hilfe an.';
 
   @override
   Widget build(BuildContext context) {
     final sbbToast = SBBToast.of(context);
 
     return Scaffold(
-      appBar: SBBHeader(
-        title: 'Umstiegshilfe',
-        onPressedLogo: () => Navigator.maybePop(context),
-      ),
+      appBar: const SBBHeader(title: 'Umstiegshilfe'),
       body: ListView(
         padding: const EdgeInsets.symmetric(
-            horizontal: sbbDefaultSpacing / 2, vertical: sbbDefaultSpacing / 2),
+          horizontal: sbbDefaultSpacing / 2,
+          vertical: sbbDefaultSpacing / 2,
+        ),
         children: [
           SBBGroup(
-            margin: const EdgeInsets.symmetric(horizontal: sbbDefaultSpacing),
-            padding: const EdgeInsets.all(sbbDefaultSpacing),
+            padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
             child: Column(
               children: [
                 SBBMessage(
