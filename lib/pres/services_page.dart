@@ -17,11 +17,11 @@ class _DemoItem extends TabBarItem {
 
 class _ServicesPageState extends State<ServicesPage> {
   final items = <TabBarItem>[
-    _DemoItem('Bahnhof', SBBIcons.train_small),
-    _DemoItem('Haltestelle', SBBIcons.station_small),
-    _DemoItem('Unterwegs', SBBIcons.archive_box_small),
-    _DemoItem('Services', SBBIcons.arrow_compass_small),
-    _DemoItem('Einstellungen', SBBIcons.adult_kids_large),
+    _DemoItem('Bahnhof', SBBIcons.station_small),
+    _DemoItem('Haltestelle', SBBIcons.bus_stop_small),
+    _DemoItem('Unterwegs', SBBIcons.train_profile_signal_small),
+    _DemoItem('Services', SBBIcons.hand_plus_circle_small),
+    _DemoItem('Einstellungen', SBBIcons.gears_small),
   ];
 
   late TabBarController controller = TabBarController(items.first);
@@ -59,7 +59,7 @@ class _ServicesPageState extends State<ServicesPage> {
                   subtitleMaxLines: 2,
                   subtitle:
                       'Holen Sie per Telefon Hilfe von der Transportpolizei.',
-                  leadingIcon: SBBIcons.alarm_clock_large,
+                  leadingIcon: SBBIcons.warning_light_small,
                   onPressed: null,
                 ),
               ),
