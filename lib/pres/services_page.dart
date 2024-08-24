@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:design_system_flutter/design_system_flutter.dart';
+import 'package:flutter/material.dart';
 import 'package:indoor_routing/pres/support_page.dart';
 
 class ServicesPage extends StatefulWidget {
@@ -37,7 +37,7 @@ class _ServicesPageState extends State<ServicesPage> {
               title: const Text('Notfall'),
               subtitle: const Text(
                   'Holen Sie per Telefon Hilfe von der Transportpolizei.'),
-              leading: const Icon(SBBIcons.warning_light_medium),
+              leading: const Icon(SBBIcons.warning_light_small),
               trailing: const Icon(SBBIcons.chevron_small_right_small),
               onTap: () {},
             ),
@@ -48,7 +48,7 @@ class _ServicesPageState extends State<ServicesPage> {
               title: const Text('Unterstützung für Sehbehinderte'),
               subtitle: const Text(
                   'Senden sie an Personen im Zug eine Nachricht, mit der Bitte sie am Bahnhof zu navigieren.'),
-              leading: const Icon(SBBIcons.hand_fingers_snap_large),
+              leading: const Icon(SBBIcons.hand_fingers_snap_small),
               trailing: const Icon(SBBIcons.chevron_small_right_small),
               onTap: () {
                 Navigator.push(
@@ -56,6 +56,17 @@ class _ServicesPageState extends State<ServicesPage> {
                   MaterialPageRoute(builder: (context) => const SupportPage()),
                 );
               },
+            ),
+          ),
+          Card(
+            margin: const EdgeInsets.symmetric(vertical: sbbDefaultSpacing / 4),
+            child: ListTile(
+              title: const Text('Helfen Sie'),
+              subtitle: const Text(
+                  'Helfen Sie anderen Reisenden, indem Sie sich als Helfer registrieren.'),
+              leading: const Icon(SBBIcons.hand_plus_circle_small),
+              trailing: const Icon(SBBIcons.chevron_small_right_small),
+              onTap: () {},
             ),
           ),
         ],
