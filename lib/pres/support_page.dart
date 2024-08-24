@@ -108,19 +108,17 @@ class _SupportPageState extends State<SupportPage> {
                             'Bernd ist sehbehindert und braucht deine Hilfe. Bringe Bernd von Gleis 2 zu Gleis 8.'),
                         leading: Icon(SBBIcons.hand_plus_circle_small),
                       ),
-                      const Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('Von: Gleis 2'),
-                            Icon(
-                              SBBIcons.arrow_right_small,
-                              size: 128.0,
-                              semanticLabel: 'Danke Icon',
-                            ),
-                            Text('Nach: Gleis 8'),
-                          ],
-                        ),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Von: Gleis 2'),
+                          Icon(
+                            SBBIcons.arrow_right_small,
+                            size: 128.0,
+                            semanticLabel: 'Danke Icon',
+                          ),
+                          Text('Nach: Gleis 8'),
+                        ],
                       ),
                       ButtonBar(
                         children: <Widget>[
