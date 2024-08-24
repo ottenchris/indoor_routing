@@ -1,6 +1,8 @@
 import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
 
+import 'supporter_found_page.dart';
+
 class RequestAidPage extends StatefulWidget {
   const RequestAidPage({super.key});
 
@@ -41,17 +43,17 @@ class _RequestAidPageState extends State<RequestAidPage> {
                   SBBTextField(
                     labelText: 'Dein Name',
                     controller: TextEditingController()
-                      ..value = TextEditingValue(text: 'Chris Ott'),
+                      ..value = const TextEditingValue(text: 'Chris Ott'),
                   ),
                   SBBTextField(
                     labelText: 'Dein Standort',
                     controller: TextEditingController()
-                      ..value = TextEditingValue(text: 'Wagen 420'),
+                      ..value = const TextEditingValue(text: 'Wagen 420'),
                   ),
                   SBBTextField(
                     labelText: 'Wo musst du hin?',
                     controller: TextEditingController()
-                      ..value = TextEditingValue(text: 'Gleis 420'),
+                      ..value = const TextEditingValue(text: 'Gleis 420'),
                   ),
                   const SizedBox(height: sbbDefaultSpacing),
                   SBBPrimaryButton(
@@ -63,6 +65,14 @@ class _RequestAidPageState extends State<RequestAidPage> {
                         _title = 'Ein Helfer wird gesucht.';
                         _description =
                             'Wir benachrichtigen dich, sobald ein Helfer gefunden wurde. Bitte schließe diese Seite nicht.';
+                      });
+                      Future.delayed(const Duration(seconds: 2), () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SupporterFoundPage()),
+                        );
                       });
                     },
                   ),
