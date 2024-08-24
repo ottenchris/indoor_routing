@@ -1,6 +1,7 @@
 import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
 
+import '../../data.dart';
 import 'supporter_found_page.dart';
 
 class RequestAidPage extends StatefulWidget {
@@ -66,14 +67,14 @@ class _RequestAidPageState extends State<RequestAidPage> {
                     SBBTextField(
                       labelText: 'Dein Austieg',
                       controller: TextEditingController()
-                        ..value =
-                            const TextEditingValue(text: 'Gleis 2 - Wagen 5'),
+                        ..value = const TextEditingValue(
+                            text: '${Data.startPlatform} - ${Data.startWagon}'),
                     ),
                     SBBTextField(
                       labelText: 'Wo musst du hin?',
                       controller: TextEditingController()
-                        ..value =
-                            const TextEditingValue(text: 'Gleis 8 - Section C'),
+                        ..value = const TextEditingValue(
+                            text: '${Data.endPlatform} - ${Data.endSection}'),
                     ),
                     const SizedBox(height: sbbDefaultSpacing),
                     SBBPrimaryButton(
