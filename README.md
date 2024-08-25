@@ -15,6 +15,10 @@ Das Video zur App-Demo ist über folgenden Link
 erreichbar: [SwissTransfer](https://www.swisstransfer.com/d/5eeb0591-bdc4-4fc9-ba44-c422cae4b118)
 oder alternativ auf [YouTube](https://youtu.be/jW_NqX_Q35w).
 
+Zudem haben wir die App nochmal abgefilmt, um die Funktionalität der App zu demonstrieren. Dieses
+Videos sind auch
+auf [SwissTransfer](https://www.swisstransfer.com/d/37eab02f-d15b-42a8-a409-a27d05be6c24)
+
 ## Team
 
 - Christian Ottenhaus
