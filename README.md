@@ -10,7 +10,7 @@ auf der Corporate Identity (CI) der SBB-Apps.
 
 ## Hackathon
 
-Die Abgabedateien für den Hackathon befindet sich im Ordner `abgabe`.
+Die Abgabedateien für den Hackathon befindet sich im Ordner `documentation`.
 
 ## Team
 
