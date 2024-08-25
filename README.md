@@ -7,3 +7,13 @@ Reisende zu entwickeln. Unsere Lösung ermöglicht es sehbehinderten Nutzern, Un
 anderen Passagieren anzufordern und bietet so den eingeschränkten Personen eine präzise Navigation
 durch Bahnhöfe. Die Anwendung wurde im Rahmen des BärnHäckt Hackathons 2024 entwickelt und basiert
 auf der Corporate Identity (CI) der SBB-Apps.
+
+## Hackathon
+
+Die Abgabedateien für den Hackathon befindet sich im Ordner `abgabe`.
+
+## Team
+
+- Christian Ottenhaus
+- Florian Martel
+- Nico Martin 

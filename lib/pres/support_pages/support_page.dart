@@ -4,7 +4,7 @@ import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../data.dart';
+import '../../data.dart';
 import 'thank_you_page.dart';
 
 class SupportPage extends StatefulWidget {
