@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: dsf.SBBTheme.dark().copyWith(
+        /// Customizing the ListTileTheme to change the subtitle color
         listTileTheme: const ListTileThemeData(
           subtitleTextStyle: TextStyle(
             color: dsf.SBBColors.smoke,
