@@ -9,33 +9,34 @@ class SupporterFoundPage extends StatelessWidget {
     return Scaffold(
       appBar: const SBBHeader(title: 'Unterstüzung gefunden'),
       body: ListView(
-          padding: const EdgeInsets.symmetric(
-            horizontal: sbbDefaultSpacing / 2,
-            vertical: sbbDefaultSpacing / 2,
-          ),
-          children: [
-            SBBGroup(
-              padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SBBMessage(
-                    title: 'Unterstützung ist unterwegs.',
-                    description:
-                        'Dein Unterstüzer ist auf dem Weg zu dir, mach gerne auf dich aufmerksam.',
-                    interactionIcon: SBBIcons.bus_sbb_medium,
-                  ),
-                  const SizedBox(height: sbbDefaultSpacing),
-                  SBBPrimaryButton(
-                    label: 'Zurück zur Startseite',
-                    onPressed: () {
-                      Navigator.popUntil(context, (route) => route.isFirst);
-                    },
-                  ),
-                ],
-              ),
+        padding: const EdgeInsets.symmetric(
+          horizontal: sbbDefaultSpacing / 2,
+          vertical: sbbDefaultSpacing / 2,
+        ),
+        children: [
+          SBBGroup(
+            padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SBBMessage(
+                  title: 'Unterstützung ist unterwegs.',
+                  description:
+                      'Dein Unterstüzer ist auf dem Weg zu dir, mach gerne auf dich aufmerksam.',
+                  interactionIcon: SBBIcons.bus_sbb_medium,
+                ),
+                const SizedBox(height: sbbDefaultSpacing),
+                SBBPrimaryButton(
+                  label: 'Zurück zur Startseite',
+                  onPressed: () {
+                    Navigator.popUntil(context, (route) => route.isFirst);
+                  },
+                ),
+              ],
             ),
-          ]),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -21,6 +21,9 @@ class _RequestAidPageState extends State<RequestAidPage> {
   Widget build(BuildContext context) {
     final sbbToast = SBBToast.of(context);
 
+    /// Shows the automatically detected platform and wagon if not loading
+    /// Shows the message with loading indicator if loading
+
     return Scaffold(
       appBar: const SBBHeader(title: 'Umstiegshilfe'),
       body: ListView(
@@ -30,7 +33,6 @@ class _RequestAidPageState extends State<RequestAidPage> {
         ),
         children: [
           SBBGroup(
-            //padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
             child: Column(
               children: [
                 if (!_isLoading)
@@ -42,7 +44,7 @@ class _RequestAidPageState extends State<RequestAidPage> {
                   ),
                 if (_isLoading)
                   SBBMessage(
-                    customIllustration: Container(),
+                    customIllustration: const SizedBox(),
                     title: _title,
                     description: _description,
                     isLoading: _isLoading,
@@ -54,53 +56,51 @@ class _RequestAidPageState extends State<RequestAidPage> {
           const SizedBox(height: sbbDefaultSpacing),
           if (!_isLoading)
             SBBGroup(
-                padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
-                child: Column(
-                  children: [
-                    const SBBNotificationBox(
-                      state: SBBNotificationBoxState.success,
-                      title: 'Automatisch erkannt',
-                      text: 'Dein Wagen und Gleis wurde erkannt.',
-                      isCloseable: false,
-                    ),
-                    const SizedBox(height: sbbDefaultSpacing / 2),
-                    SBBTextField(
-                      labelText: 'Dein Austieg',
-                      controller: TextEditingController()
-                        ..value = const TextEditingValue(
-                            text: '${Data.startPlatform} - ${Data.startWagon}'),
-                    ),
-                    SBBTextField(
-                      labelText: 'Wo musst du hin?',
-                      controller: TextEditingController()
-                        ..value = const TextEditingValue(
-                            text: '${Data.endPlatform} - ${Data.endSection}'),
-                    ),
-                    const SizedBox(height: sbbDefaultSpacing),
-                    SBBPrimaryButton(
-                      label: 'Anfrage senden',
-                      onPressed: () {
-                        sbbToast.show(
-                            message: 'Deine Anfrage wurde versendet.');
-                        setState(() {
-                          _isLoading = true;
-                          _title = 'Ein Helfer wird gesucht.';
-                          _description =
-                              'Wir benachrichtigen dich, sobald ein Helfer gefunden wurde. Bitte schließe diese Seite nicht.';
-                        });
-                        Future.delayed(const Duration(seconds: 2), () {
-                          Navigator.pop(context);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const SupporterFoundPage()),
-                          );
-                        });
-                      },
-                    ),
-                  ],
-                ))
+              padding: const EdgeInsets.all(sbbDefaultSpacing / 2),
+              child: Column(
+                children: [
+                  const SBBNotificationBox(
+                    state: SBBNotificationBoxState.success,
+                    title: 'Automatisch erkannt',
+                    text: 'Dein Wagen und Gleis wurde erkannt.',
+                    isCloseable: false,
+                  ),
+                  const SizedBox(height: sbbDefaultSpacing / 2),
+                  SBBTextField(
+                    labelText: 'Dein Austieg',
+                    controller: TextEditingController()
+                      ..value = const TextEditingValue(
+                          text: '${Data.startPlatform} - ${Data.startWagon}'),
+                  ),
+                  SBBTextField(
+                    labelText: 'Wo musst du hin?',
+                    controller: TextEditingController()
+                      ..value = const TextEditingValue(
+                          text: '${Data.endPlatform} - ${Data.endSection}'),
+                  ),
+                  const SizedBox(height: sbbDefaultSpacing),
+                  SBBPrimaryButton(
+                    label: 'Anfrage senden',
+                    onPressed: () {
+                      sbbToast.show(message: 'Deine Anfrage wurde versendet.');
+                      setState(() {
+                        _isLoading = true;
+                        _title = 'Ein Helfer wird gesucht.';
+                        _description =
+                            'Wir benachrichtigen dich, sobald ein Helfer gefunden wurde. Bitte schließe diese Seite nicht.';
+                      });
+                      Future.delayed(const Duration(seconds: 2), () {
+                        /// Simulate finding a supporter after 2 seconds
+                        Navigator.pop(context);
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SupporterFoundPage(),
+                        ));
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );

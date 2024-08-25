@@ -1,9 +1,9 @@
 import 'package:design_system_flutter/design_system_flutter.dart';
 import 'package:flutter/material.dart';
 
+import 'nav_pages/loading_page.dart';
 import 'nav_pages/services_page.dart';
 import 'nav_pages/settings_page.dart';
-import 'nav_pages/station_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _DemoItem extends TabBarItem {
-  _DemoItem(String id, IconData icon) : super(id, icon);
+  _DemoItem(super.id, super.icon);
 
   @override
   String translate(BuildContext context) => id;
@@ -36,12 +36,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
-        children: [
-          const LoadingPage(title: 'Bahnhöfe'),
-          const LoadingPage(title: 'Haltestellen'),
-          const LoadingPage(title: 'Unterwegs'),
-          const ServicesPage(),
-          const SettingsPage(),
+        children: const [
+          LoadingPage(title: 'Bahnhöfe'),
+          LoadingPage(title: 'Haltestellen'),
+          LoadingPage(title: 'Unterwegs'),
+          ServicesPage(),
+          SettingsPage(),
         ],
       ),
       bottomNavigationBar: SBBTabBar(
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             _selectedIndex = newIndex;
           });
 
-          print('Selected: ${_selectedIndex}');
+          debugPrint('Selected: $_selectedIndex');
         },
         controller: controller,
       ),
