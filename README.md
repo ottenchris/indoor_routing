@@ -11,6 +11,9 @@ auf der Corporate Identity (CI) der SBB-Apps.
 ## Hackathon
 
 Die Abgabedateien für den Hackathon befindet sich im Ordner `documentation`.
+Das Video zur App-Demo ist über folgenden Link
+erreichbar: [SwissTransfer](https://www.swisstransfer.com/d/5eeb0591-bdc4-4fc9-ba44-c422cae4b118)
+oder alternativ auf [YouTube](https://youtu.be/jW_NqX_Q35w).
 
 ## Team
 
