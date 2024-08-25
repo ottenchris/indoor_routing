@@ -64,8 +64,7 @@ class SettingsPage extends StatelessWidget {
                   children: [
                     SBBListItem(
                       title: 'App Rundgang',
-                      //TODO: Change to "Rundgang" icon
-                      leadingIcon: SBBIcons.smartphone_small,
+                      leadingIcon: SBBIcons.onboarding_small,
                       trailingIcon: SBBIcons.chevron_small_right_circle_small,
                       onPressed: null,
                     ),
