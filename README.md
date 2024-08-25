@@ -1,16 +1,9 @@
-# indoor_routing
+# Indoor Routing - Barrierefreie Navigation für Sehbehinderte
 
-A new Flutter project.
+## Überblick
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Dieses Projekt zielt darauf ab, eine barrierefreie Indoor-Navigationslösung für sehbehinderte
+Reisende zu entwickeln. Unsere Lösung ermöglicht es sehbehinderten Nutzern, Unterstützung von
+anderen Passagieren anzufordern und bietet so den eingeschränkten Personen eine präzise Navigation
+durch Bahnhöfe. Die Anwendung wurde im Rahmen des BärnHäckt Hackathons 2024 entwickelt und basiert
+auf der Corporate Identity (CI) der SBB-Apps.
